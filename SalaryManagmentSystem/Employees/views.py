@@ -1,5 +1,7 @@
 from rest_framework import generics
+from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.pagination import LimitOffsetPagination
 from .models import Employee, Team, Region
 from .serializers import EmployeeSerializer
 
@@ -18,9 +20,9 @@ class EmployeeByRegionView(generics.ListAPIView):
         return Employee.objects.filter(team__region__name=region_name)
     
     
-class EmployeeByRegionAndTeamView(generics.ListAPIView):
+class EmployeeByRegionAndTeamView(APIView):
     
-    def list(self, request):
+    def get(self, request):
         employee_queryset = Employee.objects.all()
         team_name = request.query_params.get('team')
         region_name = request.query_params.get('region')
@@ -31,6 +33,12 @@ class EmployeeByRegionAndTeamView(generics.ListAPIView):
             employee_queryset = employee_queryset.filter(team__name=team_name)
         if region_name:
             employee_queryset = employee_queryset.filter(team__region__name=region_name)
+            
+        paginator = LimitOffsetPagination()
+        result_set = paginator.paginate_queryset(queryset=employee_queryset, request=request)
+        serializer = EmployeeSerializer(result_set, many=True)
+        print(serializer.data)
+        return paginator.get_paginated_response(serializer.data)
         
         
             
