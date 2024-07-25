@@ -1,0 +1,93 @@
+from Employees.models import Region, Employee, Team
+
+
+gurugram = Region.objects.create(name = "Gurugram")
+dwarka = Region.objects.create(name= "Dwarka")
+
+gurugram = Region.objects.get(name = "Gurugram")
+dwarka = Region.objects.get(name= "Dwarka")
+
+it_team_g = Team.objects.create(name="IT", region_id=gurugram)
+hr_team_g = Team.objects.create(name="HR", region_id=gurugram)
+sales_team_g = Team.objects.create(name="sales", region_id=gurugram)
+qa_team_g = Team.objects.create(name="Quality Assurance", region_id=gurugram)
+it_team_d = Team.objects.create(name="IT", region_id=dwarka)
+hr_team_d = Team.objects.create(name="HR", region_id=dwarka)
+
+it_team_g = Team.objects.get(name="IT", region_id=gurugram)
+hr_team_g = Team.objects.get(name="HR", region_id=gurugram)
+sales_team_g = Team.objects.get(name="sales", region_id=gurugram)
+qa_team_g = Team.objects.get(name="Quality Assurance", region_id=gurugram)
+it_team_d = Team.objects.get(name="IT", region_id=dwarka)
+hr_team_d = Team.objects.get(name="HR", region_id=dwarka)
+
+Employee.objects.create(name="Sankalp", team=it_team_g, salary=60000)
+Employee.objects.create(name="Rahul", team=it_team_g, salary=55000)
+Employee.objects.create(name="Anjali", team=it_team_g, salary=58000)
+Employee.objects.create(name="Vikas", team=it_team_g, salary=62000)
+Employee.objects.create(name="Ravi", team=it_team_g, salary=56000)
+Employee.objects.create(name="Deepika", team=it_team_g, salary=59000)
+Employee.objects.create(name="Arjun", team=it_team_g, salary=60000)
+Employee.objects.create(name="Kriti", team=it_team_g, salary=61000)
+Employee.objects.create(name="Ankit", team=it_team_g, salary=57000)
+Employee.objects.create(name="Ritika", team=it_team_g, salary=63000)
+
+# Gurugram HR Team Employees
+Employee.objects.create(name="Sneha", team=hr_team_g, salary=50000)
+Employee.objects.create(name="Priya", team=hr_team_g, salary=52000)
+Employee.objects.create(name="Amit", team=hr_team_g, salary=51000)
+Employee.objects.create(name="Nisha", team=hr_team_g, salary=53000)
+Employee.objects.create(name="Anu", team=hr_team_g, salary=54000)
+Employee.objects.create(name="Rohit", team=hr_team_g, salary=50000)
+Employee.objects.create(name="Sunita", team=hr_team_g, salary=51000)
+Employee.objects.create(name="Manish", team=hr_team_g, salary=52000)
+Employee.objects.create(name="Kiran", team=hr_team_g, salary=53000)
+Employee.objects.create(name="Gautam", team=hr_team_g, salary=54000)
+
+# Gurugram Sales Team Employees
+Employee.objects.create(name="Kunal", team=sales_team_g, salary=48000)
+Employee.objects.create(name="Neha", team=sales_team_g, salary=47000)
+Employee.objects.create(name="Rohit", team=sales_team_g, salary=49000)
+Employee.objects.create(name="Meera", team=sales_team_g, salary=46000)
+Employee.objects.create(name="Vivek", team=sales_team_g, salary=47000)
+Employee.objects.create(name="Preeti", team=sales_team_g, salary=48000)
+Employee.objects.create(name="Karan", team=sales_team_g, salary=49000)
+Employee.objects.create(name="Rita", team=sales_team_g, salary=50000)
+Employee.objects.create(name="Aakash", team=sales_team_g, salary=51000)
+Employee.objects.create(name="Pooja", team=sales_team_g, salary=52000)
+
+# Gurugram QA Team Employees
+Employee.objects.create(name="Megha", team=qa_team_g, salary=53000)
+Employee.objects.create(name="Nitin", team=qa_team_g, salary=54000)
+Employee.objects.create(name="Isha", team=qa_team_g, salary=56000)
+Employee.objects.create(name="Saurabh", team=qa_team_g, salary=55000)
+Employee.objects.create(name="Raghav", team=qa_team_g, salary=57000)
+Employee.objects.create(name="Monika", team=qa_team_g, salary=58000)
+Employee.objects.create(name="Siddharth", team=qa_team_g, salary=59000)
+Employee.objects.create(name="Ruchi", team=qa_team_g, salary=60000)
+Employee.objects.create(name="Naveen", team=qa_team_g, salary=61000)
+Employee.objects.create(name="Shivani", team=qa_team_g, salary=62000)
+
+# Dwarka IT Team Employees
+Employee.objects.create(name="Deepak", team=it_team_d, salary=61000)
+Employee.objects.create(name="Ravi", team=it_team_d, salary=63000)
+Employee.objects.create(name="Lakshmi", team=it_team_d, salary=60000)
+Employee.objects.create(name="Anil", team=it_team_d, salary=64000)
+Employee.objects.create(name="Sushma", team=it_team_d, salary=65000)
+Employee.objects.create(name="Rakesh", team=it_team_d, salary=66000)
+Employee.objects.create(name="Pratibha", team=it_team_d, salary=67000)
+Employee.objects.create(name="Gopal", team=it_team_d, salary=68000)
+Employee.objects.create(name="Poonam", team=it_team_d, salary=69000)
+Employee.objects.create(name="Vijay", team=it_team_d, salary=70000)
+
+# Dwarka HR Team Employees
+Employee.objects.create(name="Mona", team=hr_team_d, salary=51000)
+Employee.objects.create(name="Harsh", team=hr_team_d, salary=52000)
+Employee.objects.create(name="Gaurav", team=hr_team_d, salary=50000)
+Employee.objects.create(name="Nidhi", team=hr_team_d, salary=53000)
+Employee.objects.create(name="Sandeep", team=hr_team_d, salary=54000)
+Employee.objects.create(name="Arpita", team=hr_team_d, salary=55000)
+Employee.objects.create(name="Vinay", team=hr_team_d, salary=56000)
+Employee.objects.create(name="Shalini", team=hr_team_d, salary=57000)
+Employee.objects.create(name="Ajay", team=hr_team_d, salary=58000)
+Employee.objects.create(name="Sakshi", team=hr_team_d, salary=59000)
